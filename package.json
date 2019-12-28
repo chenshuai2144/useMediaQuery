@@ -4,8 +4,13 @@
   "description": "An antd compatible media query hooks",
   "repository": "https://github.com/chenshuai2144/useMediaQuery/useMediaQuery",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
+  "files": [
+    "/lib",
+    "/es"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "build": "father build",
     "dev": "father doc dev",
@@ -17,6 +22,7 @@
   "devDependencies": {
     "@types/react-responsive": "^8.0.2",
     "father": "^2.16.0",
+    "np": "^5.2.1",
     "typescript": "^3.3.3"
   },
   "peerDependencies": {
