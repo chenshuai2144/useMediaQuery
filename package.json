@@ -2,7 +2,7 @@
   "name": "use-media-antd-query",
   "version": "1.0.1",
   "description": "An antd compatible media query hooks",
-  "repository": "https://github.com/chenshuai2144/useMediaQuery/useMediaQuery",
+  "repository": "https://github.com/chenshuai2144/useMediaQuery",
   "license": "MIT",
   "files": [
     "/lib",
