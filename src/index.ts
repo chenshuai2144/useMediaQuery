@@ -42,7 +42,10 @@ export type MediaQueryKey = keyof typeof MediaQueryEnum;
  */
 export const getScreenClassName = () => {
   let className: MediaQueryKey = 'md';
-
+  // support ssr
+  if(typeof window === 'undefined'){
+    return className;
+  }
   const mediaQueryKey = (Object.keys(MediaQueryEnum) as MediaQueryKey[]).find(key => {
     const { matchMedia } = MediaQueryEnum[key];
     if (window.matchMedia(matchMedia).matches) {
