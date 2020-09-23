@@ -43,7 +43,7 @@ export type MediaQueryKey = keyof typeof MediaQueryEnum;
 export const getScreenClassName = () => {
   let className: MediaQueryKey = 'md';
   // support ssr
-  if(typeof window === 'undefined'){
+  if (typeof window === 'undefined') {
     return className;
   }
   const mediaQueryKey = (Object.keys(MediaQueryEnum) as MediaQueryKey[]).find(key => {
@@ -67,6 +67,10 @@ const useMedia = () => {
   const [colSpan, setColSpan] = useState<keyof typeof MediaQueryEnum>(getScreenClassName());
 
   useEffect(() => {
+    if (process.env.NODE_ENV === 'TEST') {
+      setColSpan((process.env.USE_MEDIA as 'xs') || 'xs');
+      return;
+    }
     if (isXxl) {
       setColSpan('xxl');
       return;
