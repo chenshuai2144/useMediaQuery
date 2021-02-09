@@ -5,8 +5,8 @@ export default function useMediaQuery(mediaQuery: string) {
   useLayoutEffect(() => {
     const mediaQueryList = window.matchMedia(mediaQuery);
     const listener = (e: any) => setMatches(e.matches);
-    mediaQueryList.addEventListener('change', listener);
-    return () => mediaQueryList.removeEventListener('change', listener);
+    mediaQueryList.addListener(listener);
+    return () => mediaQueryList.removeListener(listener);
   }, [mediaQuery]);
   return matches;
 }
