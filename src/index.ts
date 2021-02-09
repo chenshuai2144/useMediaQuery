@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useMediaQuery } from 'react-responsive';
+import useMediaQuery from './useMediaQuery';
 
 export const MediaQueryEnum = {
   xs: {
@@ -58,12 +58,12 @@ export const getScreenClassName = () => {
 };
 
 const useMedia = () => {
-  const isMd = useMediaQuery(MediaQueryEnum.md);
-  const isLg = useMediaQuery(MediaQueryEnum.lg);
-  const isXxl = useMediaQuery(MediaQueryEnum.xxl);
-  const isXl = useMediaQuery(MediaQueryEnum.xl);
-  const isSm = useMediaQuery(MediaQueryEnum.sm);
-  const isXs = useMediaQuery(MediaQueryEnum.xs);
+  const isMd = useMediaQuery(MediaQueryEnum.md.matchMedia);
+  const isLg = useMediaQuery(MediaQueryEnum.lg.matchMedia);
+  const isXxl = useMediaQuery(MediaQueryEnum.xxl.matchMedia);
+  const isXl = useMediaQuery(MediaQueryEnum.xl.matchMedia);
+  const isSm = useMediaQuery(MediaQueryEnum.sm.matchMedia);
+  const isXs = useMediaQuery(MediaQueryEnum.xs.matchMedia);
   const [colSpan, setColSpan] = useState<keyof typeof MediaQueryEnum>(getScreenClassName());
 
   useEffect(() => {

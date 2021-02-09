@@ -12,16 +12,12 @@
   "module": "es/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "father build",
-    "dev": "father doc dev",
+    "build": "father-build",
     "prepublishOnly": "npm run test && npm run build && np --no-cleanup --yolo --no-publish"
   },
-  "dependencies": {
-    "react-responsive": "^8.0.1"
-  },
   "devDependencies": {
-    "@types/react-responsive": "^8.0.2",
-    "father": "^2.16.0",
+    "@types/react": "^17.0.1",
+    "father-build": "^1.19.1",
     "np": "^5.2.1",
     "typescript": "^3.3.3"
   },
