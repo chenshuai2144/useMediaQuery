@@ -22,7 +22,7 @@
     "typescript": "^3.3.3"
   },
   "peerDependencies": {
-    "react": "16.x"
+    "react": ">=16.9.0"
   },
   "authors": {
     "name": "chenshuai2144",
