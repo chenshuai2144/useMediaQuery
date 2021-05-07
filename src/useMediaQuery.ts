@@ -1,8 +1,15 @@
 ﻿import { useLayoutEffect, useState } from 'react';
 
 export default function useMediaQuery(mediaQuery: string) {
-  const [matches, setMatches] = useState(() => window.matchMedia(mediaQuery).matches);
+  const isSsr = typeof window !== undefined;
+
+  const [matches, setMatches] = useState(() =>
+    !isSsr ? false : window.matchMedia(mediaQuery).matches,
+  );
   useLayoutEffect(() => {
+    if (!isSsr) {
+      return;
+    }
     const mediaQueryList = window.matchMedia(mediaQuery);
     const listener = (e: any) => setMatches(e.matches);
     mediaQueryList.addListener(listener);
